@@ -1,23 +1,58 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { Component } from 'react'
+import { StyleSheet, View } from 'react-native'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducer from './reducers'
+import { TabNavigator, StackNavigator } from 'react-navigation'
+import { Ionicons } from '@expo/vector-icons'
+import DeckList from './components/DeckList'
+import IndividualDeck from './components/IndividualDeck'
+import Quiz from './components/Quiz'
+import NewDeck from './components/NewDeck'
+import NewQuestion from './components/NewQuestion'
 
-export default class App extends React.Component {
+const store = createStore(reducer)
+
+const Tabs = TabNavigator({
+  DeckList: {
+    screen: DeckList,
+    navigationOptions: {
+      tabBarLabel: 'Your Decks',
+      tabBarIcon: ({ tintColor }) => <Ionicons name='ios-albums' size={30} color={tintColor} />
+    },
+  },
+  NewDeck: {
+    screen: NewDeck,
+    navigationOptions: {
+      tabBarLabel: 'New Deck',
+      tabBarIcon: ({ tintColor }) => <Ionicons name='ios-add-circle' size={30} color={tintColor} />
+    },
+  },
+})
+
+const MainNavigator = StackNavigator({
+  Home: {
+    screen: Tabs,
+  },
+  IndividualDeck: {
+    screen: IndividualDeck,
+  },
+  Quiz: {
+    screen: Quiz,
+  },
+  NewQuestion: {
+    screen: NewQuestion,
+  },
+})
+
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <Provider store={store}>
+        <View style={{ flex: 1 }}>
+          <MainNavigator />
+        </View>
+      </Provider>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
