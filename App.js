@@ -34,6 +34,7 @@ const Tabs = TabNavigator({
 const MainNavigator = StackNavigator({
   Home: {
     screen: Tabs,
+    navigationOptions: {title: 'Your Decks'},
   },
   IndividualDeck: {
     screen: IndividualDeck,
@@ -44,11 +45,7 @@ const MainNavigator = StackNavigator({
   NewQuestion: {
     screen: NewQuestion,
   },
-}, {
-    navigationOptions: {
-      header: null
-    },
-  }
+},
 )
 
 export default class App extends Component {
