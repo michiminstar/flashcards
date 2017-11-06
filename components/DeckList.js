@@ -43,7 +43,6 @@ class DeckList extends Component {
 
     return (
       <View>
-        <Text style={styles.viewTitle}>Deck List</Text>
         <List>
           <FlatList
             data={Object.values(decks)}
@@ -64,12 +63,6 @@ function mapStateToProps(state) {
 }
 
 const styles = StyleSheet.create({
-  viewTitle: {
-    marginTop: 48,
-    marginLeft: 18,
-    fontSize: 30,
-    fontWeight: 'bold',
-  },
   deck: {
     marginLeft: 20,
     minHeight: 100,
@@ -77,7 +70,7 @@ const styles = StyleSheet.create({
   },
   deckTitle: {
     fontSize: 20,
-    color: '#2E7CF8',
+    color: '#006DFD',
     marginBottom: 5,
   },
   deckSubtitle: {
