@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
+
 import { TabNavigator, StackNavigator } from 'react-navigation'
 import { Ionicons } from '@expo/vector-icons'
 import DeckList from './components/DeckList'
@@ -43,7 +44,12 @@ const MainNavigator = StackNavigator({
   NewQuestion: {
     screen: NewQuestion,
   },
-})
+}, {
+    navigationOptions: {
+      header: null
+    },
+  }
+)
 
 export default class App extends Component {
   render() {
