@@ -19,6 +19,30 @@ class Quiz extends Component {
     this.setState({showAnswer: !this.state.showAnswer})
   }
 
+  onCorrect = () => {
+    const { questionIndex } = this.state
+
+    this.setState({ questionIndex: questionIndex + 1 })
+  }
+
+  onIncorrect = () => {
+    const { questionIndex, correctAnswers } = this.state
+
+    this.setState({
+      questionIndex: questionIndex + 1,
+      correctAnswers: correctAnswers + 1,
+      showAnswer: false
+    })
+  }
+
+  resetQuiz = () => {
+    this.setState({
+      questionIndex: 0,
+      correctAnswers: 0,
+      showAnswer: false
+    })
+  }
+
   render() {
     const { questionIndex, correctAnswers, showAnswer } = this.state
     const { questions } = this.props.navigation.state.params
@@ -60,15 +84,27 @@ class Quiz extends Component {
               <Button
                 title='Correct' style={{ marginBottom: 10 }}
                 backgroundColor='#70DD2F'
+                onPress={this.onCorrect}
               />
               <Button
                 title='Incorrect'
                 backgroundColor='#FB3A58'
+                onPress={this.onIncorrect}
               />
             </View>
           </View>
         ) : (
-          <View><Text>Hello</Text></View>
+          <View>
+            <View style={styles.resultContainer}>
+              <Text style={styles.body}>You got {correctAnswers} out of {questions.length}</Text>
+            </View>
+
+            <Button
+              title='Retake the Quiz' style={{marginTop: 10, padding: 20}}
+              backgroundColor='#006DFD'
+              onPress={this.resetQuiz}
+            />
+          </View>
         )}
       </View>
     )
@@ -92,7 +128,18 @@ const styles = StyleSheet.create({
   link: {
     fontSize: 16,
     color: '#006DFD',
-  }
+  },
+  resultContainer: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  body: {
+    marginTop: 48,
+    fontSize: 30,
+    marginBottom: 5,
+    justifyContent: 'center',
+  },
 })
 
 export default Quiz
