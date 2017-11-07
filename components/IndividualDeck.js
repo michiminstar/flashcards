@@ -12,12 +12,12 @@ class IndividualDeck extends Component {
   }
 
   render() {
-    const { navigation } = this.props
+    const { navigation, decks } = this.props
     const { title } = navigation.state.params
-    const questions = this.props.decks[title] && this.props.decks[title].questions
+    const questions = decks[title] && decks[title].questions
 
     return (
-      <View style={styles.container} >
+      <View style={styles.container}>
         <View style={styles.deckInfo}>
           <Text style={styles.deckTitle}>{title}</Text>
           <Text style={styles.deckSubtitle}>{questions.length} cards</Text>
