@@ -16,19 +16,17 @@ class Quiz extends Component {
   }
 
   onCorrect = () => {
-    const { questionIndex } = this.state
-
-    this.setState({ questionIndex: questionIndex + 1 })
+    this.setState(state => ({
+      questionIndex: state.questionIndex + 1,
+      correctAnswers: state.correctAnswers + 1,
+      showAnswer: false
+    }))
   }
 
   onIncorrect = () => {
-    const { questionIndex, correctAnswers } = this.state
-
-    this.setState({
-      questionIndex: questionIndex + 1,
-      correctAnswers: correctAnswers + 1,
-      showAnswer: false
-    })
+    this.setState(state => ({
+      questionIndex: state.questionIndex + 1
+    }))
   }
 
   resetQuiz = () => {
@@ -42,7 +40,7 @@ class Quiz extends Component {
   render() {
     const { questionIndex, correctAnswers, showAnswer } = this.state
     const { questions } = this.props.navigation.state.params
-    const hasQuestions = questionIndex < questions.length
+    const hasQuestions = questionIndex <= questions.length
 
     return (
       <View style={styles.container}>
@@ -55,7 +53,7 @@ class Quiz extends Component {
                 <View>
                   {showAnswer ? (
                     <View>
-                      <Text style={ styles.questionTitle }>{questions[questionIndex].answer}</Text>
+                      <Text style={ styles.questionTitle }>{questions[questionIndex-1].answer}</Text>
 
                       <TouchableOpacity onPress={this.showAnswer}>
                         <Text style={styles.link}>Back to Question</Text>
@@ -63,7 +61,7 @@ class Quiz extends Component {
                     </View>
                   ) : (
                     <View>
-                      <Text style={ styles.questionTitle }>{questions[questionIndex].question}</Text>
+                      <Text style={ styles.questionTitle }>{questions[questionIndex-1].question}</Text>
 
                       <TouchableOpacity onPress={this.showAnswer}>
                         <Text style={styles.link}>See Answer</Text>
