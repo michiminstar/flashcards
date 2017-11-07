@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, TextInput, View, Alert } from 'react-native'
+import { StyleSheet, Text, TextInput, View, Alert, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import { addDeck } from '../actions'
 import { saveDeckTitle } from '../util/api'
@@ -40,7 +40,7 @@ class NewDeck extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <View style={styles.formContainer}>
           <Text style={styles.title}>What is the title of your new deck?</Text>
 
@@ -57,7 +57,7 @@ class NewDeck extends Component {
           backgroundColor='#006DFD'
           onPress={this.onSubmit}
         />
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 

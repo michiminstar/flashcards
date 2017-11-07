@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, TextInput, Alert } from 'react-native'
+import { StyleSheet, Text, View, TextInput, Alert, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import { addQuestion } from '../actions'
 import { addCardToDeck } from '../util/api'
@@ -41,7 +41,7 @@ class NewQuestion extends Component {
     const { question, anwer } = this.state
 
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <View style={styles.formContainer}>
           <Text style={styles.label}>Question</Text>
           <TextInput
@@ -62,7 +62,7 @@ class NewQuestion extends Component {
           backgroundColor='#006DFD'
           onPress={this.onSubmit}
         />
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 
