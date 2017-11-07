@@ -7,7 +7,7 @@ import { Button } from 'react-native-elements'
 
 class NewQuestion extends Component {
 
-  static navigationOptions = { title: 'Add Card' }  
+  static navigationOptions = { title: 'Add Card' }
 
   state = {
     question: '',
@@ -68,11 +68,7 @@ class NewQuestion extends Component {
 
 }
 
-function mapStateToProps(state) {
-  return {
-    decks: state
-  }
-}
+const mapStateToProps = decks => ({ decks })
 
 const styles = StyleSheet.create({
   container: {

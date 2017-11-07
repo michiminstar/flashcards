@@ -56,11 +56,7 @@ class DeckList extends Component {
 
 }
 
-function mapStateToProps(state) {
-  return {
-    decks: state
-  }
-}
+const mapStateToProps = decks => ({ decks })
 
 const styles = StyleSheet.create({
   deck: {
