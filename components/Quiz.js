@@ -37,6 +37,10 @@ class Quiz extends Component {
     })
   }
 
+  backToDeck = () => {
+    this.props.navigation.goBack()
+  }
+
   render() {
     const { questionIndex, correctAnswers, showAnswer } = this.state
     const { questions } = this.props.navigation.state.params
@@ -93,9 +97,19 @@ class Quiz extends Component {
             </View>
 
             <Button
-              title='Retake the Quiz' style={{marginTop: 10, padding: 20}}
+              title='Retake Quiz'
+              style={ styles.buttonSpacing }
               backgroundColor='#006DFD'
               onPress={this.resetQuiz}
+            />
+
+            <Button
+              title='Back to Deck'
+              style={ styles.buttonSpacing }
+              backgroundColor='transparent'
+              buttonStyle={styles.borderButton}
+              color='#006DFD'
+              onPress={this.backToDeck}
             />
           </View>
         )}
@@ -126,12 +140,22 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 30,
   },
   body: {
     marginTop: 48,
     fontSize: 30,
     marginBottom: 5,
     justifyContent: 'center',
+  },
+  buttonSpacing: {
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 10,
+  },
+  borderButton: {
+    borderWidth: 1,
+    borderColor: '#006DFD',
   },
 })
 
