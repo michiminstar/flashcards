@@ -6,11 +6,8 @@ import { saveDeckTitle } from '../util/api'
 import { Button } from 'react-native-elements'
 
 class NewDeck extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: 'Add Deck'
-    }
-  }
+
+  static navigationOptions = { title: 'Add Deck' }
 
   state: {
     title: ''

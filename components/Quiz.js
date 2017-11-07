@@ -9,11 +9,7 @@ class Quiz extends Component {
     showAnswer: false,
   }
 
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: 'Quiz'
-    }
-  }
+  static navigationOptions = { title: 'Quiz' }
 
   showAnswer = () => {
     this.setState({showAnswer: !this.state.showAnswer})

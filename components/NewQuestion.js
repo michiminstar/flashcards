@@ -6,11 +6,8 @@ import { addCardToDeck } from '../util/api'
 import { Button } from 'react-native-elements'
 
 class NewQuestion extends Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: 'Add Card'
-    }
-  }
+
+  static navigationOptions = { title: 'Add Card' }  
 
   state = {
     question: '',
