@@ -27,7 +27,12 @@ class NewDeck extends Component {
       [
         {
           text: 'OK',
-          onPress: () => this.props.navigation.goBack()
+          onPress: () => this.props.navigation.navigate(
+            'IndividualDeck',{
+              title,
+              questions: []
+            }
+          )
         }
       ]
     )
