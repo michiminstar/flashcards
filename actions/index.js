@@ -7,7 +7,7 @@ export const loadDecks = decks => ({
   decks
 })
 
-export const addDeck = decks => ({
+export const addDeck = deck => ({
   type: ADD_DECK,
   deck
 })

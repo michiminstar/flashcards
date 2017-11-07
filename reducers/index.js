@@ -5,7 +5,7 @@ import {
 } from '../actions'
 
 function decks(state = {}, action) {
-  const { decks } = action
+  const { decks, deck } = action
 
   switch (action.type) {
     case LOAD_DECKS:
@@ -20,6 +20,11 @@ function decks(state = {}, action) {
       return {
         ...state,
         [title]: { ...state[title], questions: newQuestions },
+      }
+    case ADD_DECK:
+      return {
+        ...state,
+        ...deck
       }
     default:
       return state
