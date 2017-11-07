@@ -12,12 +12,12 @@ let initialData = {
     title: 'React',
     questions: [
       {
-        question: 'State can be mutated in Redux',
-        answer: 'No...',
+        question: 'What is React?',
+        answer: 'A library for managing user interfaces',
       },
       {
-        question: 'Does React Native work with Android?',
-        answer: 'Yes!',
+        question: 'Where do you make Ajax requests in React?',
+        answer: 'The componentDidMount lifecycle event',
       }
     ]
   },
@@ -25,8 +25,8 @@ let initialData = {
     title: 'JavaScript',
     questions: [
       {
-        question: 'Does const declare a block-scoped variable?',
-        answer: 'Yes!',
+        question: 'What is a closure?',
+        answer: 'The combination of a function and the lexical environment within which that function was declared.',
       }
     ]
   }
