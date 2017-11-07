@@ -47,11 +47,13 @@ class NewDeck extends Component {
           <TextInput
             onChangeText={(title) => this.setState({ title })}
             placeholder="Enter Your Deck Name"
+            style={styles.input}
           />
         </View>
 
         <Button
-          title='Save' style={{marginTop: 10, padding: 20}}
+          title='Create Deck'
+          style={styles.buttonSpacing}
           backgroundColor='#006DFD'
           onPress={this.onSubmit}
         />
@@ -79,7 +81,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginTop: 10,
     marginBottom: 10,
-  }
+  },
+  input: {
+    alignSelf: 'stretch',
+    paddingLeft: 40,
+    paddingRight: 40,
+  },
+  buttonSpacing: {
+    marginTop: 10,
+    padding: 20,
+  },
 })
 
 export default connect(mapStateToProps)(NewDeck)
