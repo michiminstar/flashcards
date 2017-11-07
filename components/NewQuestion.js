@@ -45,7 +45,7 @@ class NewQuestion extends Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.formCntainer}>
+        <View style={styles.formContainer}>
           <Text style={styles.label}>Question</Text>
           <TextInput
             onChangeText={(question) => this.setState({ question })}
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  formCntainer: {
+  formContainer: {
     marginTop: 40,
     flexDirection: 'column',
     justifyContent: 'center',
