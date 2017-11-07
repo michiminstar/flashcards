@@ -4,7 +4,7 @@ import { Button } from 'react-native-elements'
 
 class Quiz extends Component {
   state = {
-    questionIndex: 0,
+    questionIndex: 1,
     correctAnswers: 0,
     showAnswer: false,
   }
@@ -37,7 +37,7 @@ class Quiz extends Component {
 
   resetQuiz = () => {
     this.setState({
-      questionIndex: 0,
+      questionIndex: 1,
       correctAnswers: 0,
       showAnswer: false
     })
@@ -47,7 +47,6 @@ class Quiz extends Component {
     const { questionIndex, correctAnswers, showAnswer } = this.state
     const { questions } = this.props.navigation.state.params
     const hasQuestions = questionIndex < questions.length
-    const questionLeft = questions.length - questionIndex
 
     return (
       <View style={styles.container}>
@@ -55,7 +54,7 @@ class Quiz extends Component {
           <View>
             <View>
               <View style={{ margin: 40 }}>
-                <Text style={styles.questionIndex}>{questionLeft} / {questions.length}</Text>
+                <Text style={styles.questionIndex}>{questionIndex} / {questions.length}</Text>
 
                 <View>
                   {showAnswer ? (
