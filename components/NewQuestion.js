@@ -44,18 +44,21 @@ class NewQuestion extends Component {
     const { question, anwer } = this.state
 
     return (
-      <View>
-        <Text>Question</Text>
-        <TextInput
-          onChangeText={(question) => this.setState({ question })}
-          placeholder="Enter Your Question"
-        />
+      <View style={styles.container}>
+        <View style={styles.formCntainer}>
+          <Text style={styles.label}>Question</Text>
+          <TextInput
+            onChangeText={(question) => this.setState({ question })}
+            placeholder="Enter Your Question"
+          />
 
-        <Text>Answer</Text>
-        <TextInput
-          onChangeText={(answer) => this.setState({ answer })}
-          placeholder="Enter the Answer"
-        />
+          <Text style={styles.label}>Answer</Text>
+          <TextInput
+            onChangeText={(answer) => this.setState({ answer })}
+            placeholder="Enter the Answer"
+          />
+        </View>
+
 
         <Button
           title='Save' style={{marginTop: 10, padding: 20}}
@@ -73,5 +76,23 @@ function mapStateToProps(state) {
     decks: state
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  formCntainer: {
+    marginTop: 40,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  label: {
+    fontSize: 20,
+    marginTop: 10,
+    marginBottom: 10,
+  }
+})
 
 export default connect(mapStateToProps)(NewQuestion)
